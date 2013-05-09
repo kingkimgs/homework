@@ -16,14 +16,12 @@ import android.widget.Button;
 public class MainActivity extends Activity implements OnClickListener {
 
 	private Button startButton;
-	private Button rankButton;
-	
-	int imagelist [] = {R.drawable.hara,R.drawable.minkyung,R.drawable.seoli,R.drawable.seunyeon,R.drawable.sohee,R.drawable.sunny
-			,R.drawable.suzy};
-	String nameList [] = {"구하라","설리"};
+		
+	int imagelist [] = {R.drawable.cristal,R.drawable.gain,R.drawable.hara,R.drawable.hyuna,R.drawable.jesica,R.drawable.jihyun,R.drawable.minkyung,R.drawable.parkbom,R.drawable.sandara,R.drawable.sehyun,R.drawable.seoli,R.drawable.seunyeon,R.drawable.sohee,R.drawable.sooyoung,R.drawable.sunny,R.drawable.suzy,R.drawable.teayeon,R.drawable.victoria,R.drawable.youna,R.drawable.yui};		
+	String nameList [] = {"크리스탈","가인","구하라","현아","제시카","남지현","강민경","박봄","산다라박","서현","설리","한승연","소희","수영","써니","수지","태연","빅토리아","윤아","유리"};
 	
 	static final Vector<Star> StarList = new Vector<Star>();	
-	Star  star;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,18 +30,17 @@ public class MainActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		startButton = (Button) findViewById(R.id.start);
-		rankButton = (Button) findViewById(R.id.rank);
+		startButton = (Button) findViewById(R.id.start);		
 
-		startButton.setOnClickListener(this);
-		rankButton.setOnClickListener(this);
+		startButton.setOnClickListener(this);		
 		
-		star = new Star();
+		
 		addList();
 	}
 	
 	public void addList(){
-		for(int i =0 ; i < nameList.length ; i++){			
+		for(int i =0 ; i < 16 ; i++){
+			Star star = new Star();
 			star.setName(nameList[i]);
 			star.setImage(imagelist[i]);			
 			StarList.add(star);
@@ -56,7 +53,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		if (v.equals(startButton)) {
 			AlertDialog.Builder localBuilder = new AlertDialog.Builder(this);
 			localBuilder.setTitle("선택하세요.");
-			localBuilder.setNeutralButton("랜덤선택",
+			localBuilder.setNeutralButton("자동선택",
 					new DialogInterface.OnClickListener() {
 						public void onClick(
 								DialogInterface paramAnonymousDialogInterface,
@@ -64,8 +61,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
 							Intent intent = new Intent(MainActivity.this,
 									ImageSelectActivity.class);
-							startActivity(intent);
-							MainActivity.this.finish();
+							intent.putExtra("auto", true);
+							startActivity(intent);							
 						}
 					});
 			localBuilder.setNegativeButton("직접선택",
@@ -76,14 +73,10 @@ public class MainActivity extends Activity implements OnClickListener {
 							Intent intent = new Intent(
 									MainActivity.this,
 									selectListActivity.class);
-							startActivity(intent);
-							MainActivity.this.finish();
+							startActivity(intent);							
 						}
 					});
 			localBuilder.show();
-		} else {
-			Intent intent = new Intent(MainActivity.this, RankActivity.class);
-			startActivity(intent);
-		}
+		} 
 	}
 }
