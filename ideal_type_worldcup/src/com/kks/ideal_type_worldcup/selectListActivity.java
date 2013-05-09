@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class selectListActivity extends Activity implements OnClickListener {
 
@@ -35,18 +36,21 @@ public class selectListActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		int check_num = 0;
-		for (int i = 0; i < 20; i++) {
-			if (list.isItemChecked(i)) {
-				ImageSelectActivity.Round_16.add(MainActivity.StarList.get(i));
-				check_num++;
-			}
-		}
+		int check_num = 0;	
 		if (check_num == 16) {
+			for (int i = 0; i < 20; i++) {
+				if (list.isItemChecked(i)) {
+					ImageSelectActivity.Round_16.add(MainActivity.StarList.get(i));
+					check_num++;
+				}
+			}
 			Intent intent = new Intent(selectListActivity.this,ImageSelectActivity.class);
 			intent.putExtra("auto", false);
 			startActivity(intent);
 			selectListActivity.this.finish();
+		}
+		else{
+			Toast.makeText(this, "16명을 선택하세요!!", Toast.LENGTH_SHORT).show();
 		}
 	}
 }

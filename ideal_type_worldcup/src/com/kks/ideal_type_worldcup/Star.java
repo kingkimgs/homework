@@ -1,6 +1,5 @@
 package com.kks.ideal_type_worldcup;
 
-import android.graphics.drawable.Drawable;
 
 public class Star {
 	

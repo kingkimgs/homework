@@ -8,7 +8,7 @@
         android:id="@+id/list_start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="시작" />
 
     <ListView
         android:id="@+id/listview"

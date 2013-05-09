@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -52,7 +51,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		if (v.equals(startButton)) {
 			AlertDialog.Builder localBuilder = new AlertDialog.Builder(this);
-			localBuilder.setTitle("선택하세요.");
+			localBuilder.setTitle("게임모드를 선택하세요.");
 			localBuilder.setNeutralButton("자동선택",
 					new DialogInterface.OnClickListener() {
 						public void onClick(

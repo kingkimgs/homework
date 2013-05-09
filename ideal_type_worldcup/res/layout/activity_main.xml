@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/idol"
     tools:context=".MainActivity" >
 
     <LinearLayout
@@ -11,14 +12,14 @@
         android:layout_weight="1"
         android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/textView1"
+        <ImageView
+            android:id="@+id/imageView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.07"
-            android:gravity="center"
-            android:text="이상형월드컵"
-            android:textSize="50sp" />
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/main_letter" />
 
     </LinearLayout>
 
@@ -32,8 +33,14 @@
             android:id="@+id/start"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Start" />
- 
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/a_purple"
+            android:text="시작"
+            android:textSize="30dp" />
+
     </LinearLayout>
 
 </LinearLayout>
